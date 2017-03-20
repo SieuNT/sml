@@ -30,4 +30,36 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
+
+    /**
+     * @param $roles
+     * @return bool
+     */
+    public function hasRole($roles) {
+        if(!is_array($roles)) {
+            $roles = explode('|', $roles);
+        }
+
+        $userRoles = $this->roles()->pluck('slug')->toArray();
+
+        return !empty(array_intersect($roles, $userRoles));
+    }
+
+    /**
+     * @param $roleIds
+     */
+    public function attachRoles($roleIds) {
+        return $this->roles()->attach($roleIds);
+    }
+
+    /**
+     * @param $roleIds
+     */
+    public function detachRoles($roleIds) {
+        return $this->roles()->detach($roleIds);
+    }
+
+    public function syncRoles($roleIds) {
+        return $this->roles()->sync($roleIds);
+    }
 }

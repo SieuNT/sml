@@ -22,4 +22,8 @@ class Permission extends Model
     public function roles() {
         return $this->belongsToMany(Role::class);
     }
+
+    public function syncRoles($roleIds) {
+        return $this->roles()->sync($roleIds);
+    }
 }
