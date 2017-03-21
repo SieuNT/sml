@@ -6,7 +6,7 @@
             <section class="login_content">
                 <form role="form" method="POST" action="{{ route('backend.login') }}">
                     {{ csrf_field() }}
-
+                    <h1 class="text-center">BioCMS</h1>
                     <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
                                placeholder="Email" required autofocus>

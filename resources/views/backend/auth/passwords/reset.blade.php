@@ -9,7 +9,7 @@
                         {{ session('status') }}
                     </div>
                 @endif
-
+                <h1 class="text-center">BioCMS</h1>
                 <form role="form" method="POST" action="{{ route('password.request') }}">
                     {{ csrf_field() }}
 
