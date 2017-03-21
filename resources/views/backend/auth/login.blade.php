@@ -4,7 +4,7 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('backend.login') }}">
+                <form role="form" method="POST" action="{{ route('backend.login') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -46,9 +46,7 @@
                     </div>
 
                     <div class="form-group">
-                        <a class="btn btn-link" href="{{ route('backend.password.request') }}">
-                            Bạn bị quên mật khẩu?
-                        </a>
+                        <p><a href="{{ route('backend.password.request') }}">Bạn bị quên mật khẩu?</a></p>
                     </div>
                 </form>
             </section>
