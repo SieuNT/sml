@@ -30,8 +30,9 @@ Route::group(['namespace' => 'Frontend'], function() {
     Route::get('/home', 'HomeController@index');
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => 'roles:admin'], function() {
     Route::get('/', 'DashboardController@index');
+    Route::get('/users', 'DashboardController@index');
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('backend.login');
     Route::post('login', 'Auth\LoginController@login');
