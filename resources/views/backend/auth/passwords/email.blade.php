@@ -30,7 +30,7 @@
                         </button>
                     </div>
                     <div class="form-group">
-                        <a class="btn" href="{{ route('backend.login') }}">
+                        <a class="btn btn-link" href="{{ route('backend.login') }}">
                             <i class="fa fa-chevron-left" aria-hidden="true"></i> Quay lại đăng nhập
                         </a>
                     </div>
