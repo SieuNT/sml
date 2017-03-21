@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\CommonHelper;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -59,15 +60,7 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
-        $prefix = trim($request->route()->getPrefix(), '/');
-        switch ($prefix) {
-            case 'admin':
-                $route = 'backend.login';
-                break;
-            default:
-                $route = 'login';
-                break;
-        }
+        $route = CommonHelper::getRouteLogin($request);
         return redirect()->guest(route($route));
     }
 }
