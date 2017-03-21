@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $tables = [
+        'users',
+        'roles',
+        'permissions',
+        'permission_role',
+        'role_user',
+    ];
     /**
      * Run the database seeds.
      *
@@ -13,11 +20,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('users')->truncate();
-        DB::table('roles')->truncate();
-        DB::table('permissions')->truncate();
-        DB::table('permission_role')->truncate();
-        DB::table('role_user')->truncate();
+        foreach ($this->tables as $table) {
+            DB::table($table)->truncate();
+        }
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call(UsersTableSeeder::class);
         $this->call(RolesTableSeeder::class);

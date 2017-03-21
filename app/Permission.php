@@ -17,11 +17,6 @@ class Permission extends Model
     protected $fillable = ['name', 'slug', 'description'];
 
     /**
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles() {

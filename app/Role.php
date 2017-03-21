@@ -17,11 +17,6 @@ class Role extends Model
     protected $fillable = ['name', 'slug'];
 
     /**
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users() {
