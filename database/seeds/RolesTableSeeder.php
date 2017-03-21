@@ -11,7 +11,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Role::createMany([
+        $roles = [
             [
                 'name' => 'Supper Admin',
                 'slug' => 'super_admin',
@@ -36,6 +36,11 @@ class RolesTableSeeder extends Seeder
                 'name' => 'Banned',
                 'slug' => 'banned',
             ]
-        ]);
+        ];
+        foreach ($roles as $role):
+            \App\Role::create($role);
+        endforeach;
+
+        \App\User::find(1)->attachRoles(1);
     }
 }
