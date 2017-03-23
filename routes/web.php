@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Frontend'], function() {
     Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('social.login');
     Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.login.callback');
     //Frontend router
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware' => 'roles:admin'], function() {
