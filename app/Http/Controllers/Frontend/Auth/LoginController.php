@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend\Auth;
 
 use App\Http\Controllers\Controller;
+use App\UserSocial;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -45,5 +48,21 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('frontend.auth.login');
+    }
+
+    public function redirectToProvider($provider) {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider, UserSocial $userSocial) {
+        try {
+            $user = Socialite::driver($provider)->user();
+        } catch (\Exception $ex) {
+            return redirect()->guest(route('login'));
+        }
+
+        $user = $userSocial->createOrGetUser($user, $provider);
+        auth()->login($user);
+        return redirect()->to(route('home'));
     }
 }

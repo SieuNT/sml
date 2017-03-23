@@ -59,6 +59,9 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <a href="{{ route('social.login', ['facebook']) }}" class="btn btn-facebook">FB Login</a>
+                        </div>
                     </form>
                 </div>
             </div>
