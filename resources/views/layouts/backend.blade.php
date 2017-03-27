@@ -43,10 +43,10 @@
     <!-- Navbar Start -->
     <nav class="navigation">
         <ul class="list-unstyled">
-            <li class="active"><a href="index.html"><i class="ion-home"></i> <span
-                            class="nav-label">Dashboard</span></a></li>
+            <li class="active"><a href="{{route('backend')}}"><i class="ion-home"></i> <span
+                            class="nav-label">Bảng điều khiển</span></a></li>
             <li class="has-submenu"><a href="#"><i class="ion-android-apps"></i> <span
-                            class="nav-label">UI Elements</span></a>
+                            class="nav-label">Tin tức</span></a>
                 <ul class="list-unstyled">
                     <li><a href="typography.html">Typography</a></li>
                     <li><a href="buttons.html">Buttons</a></li>
