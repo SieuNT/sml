@@ -29,7 +29,7 @@
         ]) !!};
     </script>
 </head>
-<body class="login">
+<body>
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
